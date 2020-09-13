@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:treinando/components/transactions_card.dart';
 import 'package:treinando/utils/colors.dart';
 
+import 'utils/colors.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -19,17 +21,51 @@ class _HomeScreenState extends State<HomeScreen> {
   final String _text = "Overview";
   @override
   Widget build(BuildContext context) {
+    final _appBar = AppBar(
+      elevation: 0,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          GestureDetector(
+            onTap: () {},
+            child: Icon(
+              Icons.dehaze,
+              color: ColorPalette.primaryColorPurple,
+              size: 28,
+            ),
+          ),
+          Text(
+            _text,
+            style: TextStyle(color: ColorPalette.primaryColorPurple),
+          ),
+          GestureDetector(
+            onTap: () {},
+            child: Icon(
+              Icons.notifications_none,
+              color: ColorPalette.primaryColorPurple,
+              size: 28,
+            ),
+          ),
+        ],
+      ),
+      backgroundColor: Colors.orange,
+      iconTheme: IconThemeData(color: ColorPalette.primaryColorPurple),
+    );
+    MediaQueryData screenSize = MediaQuery.of(context);
+    
+    final _screenHeight = (screenSize.size.height - _appBar.preferredSize.height)
+    - MediaQuery.of(context).padding.top;
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(78),
-        child: AppBar(
-          elevation: 0,
-          title: Text(_text, style: TextStyle(color: ColorPalette.primaryColorPurple),),
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          iconTheme: IconThemeData(color: ColorPalette.primaryColorPurple),
-          actions: <Widget>[
-            Icon(Icons.notifications_none, color: ColorPalette.primaryColorPurple, size: 34,),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              height: 107,
+              child: _appBar,
+            ),
           ],
         ),
       ),
@@ -92,9 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               // ListView.builder(
               //   itemCount: _transactions.length,
-              //   itemBuilder: (context, int index) {
-
-              //   },
+              //   itemBuilder: (context, int index) {},
               // ),
               Container(
                   height: 80,
@@ -115,11 +149,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ))
             ],
           ),
-        ),
-      ),
-      drawer: Drawer(
-        child: Container(
-          color: ColorPalette.primaryColorPurple,
         ),
       ),
     );

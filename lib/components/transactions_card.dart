@@ -14,7 +14,7 @@ class CardTransactions extends StatelessWidget {
           onTap: (){},
           child: ListTile(
             title: Text(cardModel.name),
-            subtitle: Text(""),
+            subtitle: Text(cardModel.subtitle),
           ),
         ),
       ),
