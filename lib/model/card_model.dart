@@ -1,9 +1,14 @@
+import 'package:flutter/material.dart';
+
 class CardModel {
-  String name;
-  String subtitle;
-  String negativeBalance;
-  String positiveBalance;
+  final String name;
+  final String subtitle;
+  final String negativeBalance;
+  final String positiveBalance;
 
-  CardModel(this.name, this.subtitle, this.negativeBalance, this.positiveBalance);
-
+  const CardModel({
+  this.name = 'Conversion',
+  @required this.subtitle,
+  @required this.negativeBalance,
+  @required this.positiveBalance});
 }

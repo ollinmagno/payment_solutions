@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:treinando/dao/transactions.dart';
 import 'package:treinando/model/card_model.dart';
 
 class CardTransactions extends StatelessWidget {
   final CardModel cardModel;
-  const CardTransactions({this.cardModel});
+  final Transactions transactions;
+  const CardTransactions(this.transactions,  this.cardModel);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +17,7 @@ class CardTransactions extends StatelessWidget {
           child: ListTile(
             title: Text(cardModel.name),
             subtitle: Text(cardModel.subtitle),
+            leading: Icon(Icons.verified_user, color: Colors.green,),
           ),
         ),
       ),
