@@ -3,7 +3,7 @@ import 'package:treinando/model/card_model.dart';
 
 class CardTransactions extends StatelessWidget {
   final CardModel cardModel;
-  const CardTransactions(this.cardModel);
+  const CardTransactions({this.cardModel});
 
   @override
   Widget build(BuildContext context) {

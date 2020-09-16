@@ -4,6 +4,6 @@ class CardModel {
   String negativeBalance;
   String positiveBalance;
 
-  CardModel({this.name, this.negativeBalance, this.positiveBalance});
+  CardModel(this.name, this.subtitle, this.negativeBalance, this.positiveBalance);
 
 }

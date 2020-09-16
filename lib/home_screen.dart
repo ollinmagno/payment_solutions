@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:treinando/components/transactions_card.dart';
+import 'package:treinando/dao/transactions.dart';
 import 'package:treinando/utils/colors.dart';
 
 import 'utils/colors.dart';
@@ -10,15 +12,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List _coins = List();
-  List _transactions = List<Card>();
-  @override
-  void initState() {
-    super.initState();
-    //_coins.add("");
-  }
-
   final String _text = "Overview";
+  
   @override
   Widget build(BuildContext context) {
     final _appBar = AppBar(
@@ -55,6 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
     
     final _screenHeight = (screenSize.size.height - _appBar.preferredSize.height)
     - MediaQuery.of(context).padding.top;
+
+    final Transactions _transactions = Provider.of(context);
 
     return Scaffold(
       appBar: PreferredSize(
@@ -101,9 +98,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
               // ListView.builder(
               //   itemCount: _coins.length,
-              //   itemBuilder: (context, int index) {
-              //     //return CardTransactions();
-              //   },
+              //   itemBuilder: (context, int index) =>
+                  
               // ),
 
               Row(
@@ -127,9 +123,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               // ListView.builder(
-              //   itemCount: _transactions.length,
-              //   itemBuilder: (context, int index) {},
+              //   itemCount: _transactions.count,
+              //   itemBuilder: (context, int index) =>
+              //     _transactions.byIndex(index),
               // ),
+
               Container(
                   height: 80,
                   decoration: BoxDecoration(
